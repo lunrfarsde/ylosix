@@ -9,6 +9,7 @@ class CategoriesController < Frontend::CommonController
   end
 
   def show
+    render text: 'Category not found.', status: 404 if @category.nil?
   end
 
   def tags

@@ -38,4 +38,10 @@ class ProductsControllerTest < ActionController::TestCase
     get :add_to_shopping_cart, id: object.id
     assert_response :redirect
   end
+
+  test 'should respond with not found when non-existent slug given' do
+    get :show, slug: 'non-existent-slug'
+
+    assert_response :missing
+  end
 end

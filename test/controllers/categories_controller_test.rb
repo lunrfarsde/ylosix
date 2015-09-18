@@ -24,4 +24,10 @@ class CategoriesControllerTest < ActionController::TestCase
     get :tags, slug_tags: tag.id
     assert_response :success
   end
+
+  test 'should respond with not found when non-existent slug given' do
+    get :show, slug: 'non-existent-slug'
+
+    assert_response :missing
+  end
 end

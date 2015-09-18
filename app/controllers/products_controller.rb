@@ -4,6 +4,7 @@ class ProductsController < Frontend::CommonController
   before_action :set_product
 
   def show
+    render text: 'Product not found.', status: 404 if @product.nil?
   end
 
   def get_template_variables(template)
